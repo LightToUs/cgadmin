@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="i18n-title" content="legal.terms.meta.title">
+    <title>ClawGet · 用户协议</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .navbar {
+            border-bottom: 1px solid #eaeaea;
+            background: #ffffff;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+    .logo-icon {
+            background: #ff6b4a;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transform: rotate(-5deg);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b4a;
+        }
+
+        .nav-links a.nav-active {
+            color: #ff6b4a;
+        }
+
+        .nav-control {
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn {
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn.nav-control {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 16px;
+            text-align: center;
+        }
+
+        .btn-login {
+            background: #ffffff;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            color: #1a1a1a;
+        }
+
+        .btn-login:hover {
+            border-color: #ff6b4a;
+            transform: translateY(-2px);
+        }
+
+        .lang-select {
+            appearance: none;
+            padding: 0 14px;
+            line-height: 40px;
+            border-radius: 40px;
+            border: 1px solid #eaeaea;
+            background: white;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-align-last: center;
+        }
+
+        .nav-home-btn {
+            display: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 36px 24px 80px;
+        }
+
+        .hero {
+            max-width: 900px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            letter-spacing: -0.02em;
+        }
+
+        .meta {
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .content {
+            margin-top: 26px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            max-width: 900px;
+        }
+
+        .card {
+            border: 1px solid #eaeaea;
+            border-radius: 18px;
+            padding: 18px 18px;
+            background: #fff;
+        }
+
+        .card h2 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .card ul {
+            padding-left: 18px;
+            color: #333;
+        }
+
+        .card li {
+            margin: 6px 0;
+        }
+
+        .lang-block {
+            display: none;
+        }
+
+        .lang-block.is-active {
+            display: block;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+            .nav-home-btn {
+                display: inline-flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a class="logo" href="./index.html">
+             <span class="logo-icon" >🦞</span>
+                <span>ClawGet</span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="./index.html" data-i18n="nav.home">首页</a>
+                    <a href="./help.html" data-i18n="nav.docs">帮助</a>
+                    <a href="./privacy.html" data-i18n="nav.privacy">隐私</a>
+                    <a href="./terms.html" class="nav-active" data-i18n="nav.terms">条款</a>
+                </div>
+                <a href="./index.html" class="btn btn-login nav-control nav-home-btn" data-i18n="nav.home">首页</a>
+                <select id="langSelect" class="lang-select nav-control" data-i18n-attr="aria-label:common.language">
+                    <option value="zh-CN" selected>中文</option>
+                    <option value="zh-HK">繁體</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero">
+            <h1 data-i18n="legal.terms.title">用户协议</h1>
+            <div class="meta">
+                <span data-i18n="legal.updatedLabel">更新日期</span>
+                <span>：2026-03-18</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="lang-block" data-lang="zh-CN">
+                <div class="card">
+                    <h2>1. 适用范围</h2>
+                    <p>本协议适用于你使用 ClawGet 的网站、产品功能、API 与相关服务。你使用服务即表示你已阅读并同意本协议及相关政策。</p>
+                </div>
+
+                <div class="card">
+                    <h2>2. 账号与安全</h2>
+                    <ul>
+                        <li>你应提供真实、准确的信息并及时更新。</li>
+                        <li>你应妥善保管账号凭证，对账号下的行为承担责任。</li>
+                        <li>如发现异常使用或安全事件，请尽快通知我们。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>3. 合法使用</h2>
+                    <p>你承诺不会使用 ClawGet 从事违法、侵权或滥用行为，包括但不限于：</p>
+                    <ul>
+                        <li>发送垃圾信息、诈骗、骚扰、非法营销或违反适用反垃圾/隐私法律的行为。</li>
+                        <li>侵犯他人知识产权、隐私权或其他合法权益。</li>
+                        <li>对服务进行逆向工程、绕过安全机制、扫描漏洞、干扰可用性。</li>
+                        <li>上传恶意代码或利用服务传播病毒、木马等。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>4. 你的内容与数据</h2>
+                    <ul>
+                        <li>你对你上传、导入或生成的内容与数据拥有权利或已获得必要授权。</li>
+                        <li>你授予我们在提供与改进服务所必需范围内处理该数据的权利。</li>
+                        <li>你应遵守所在地的数据保护/营销合规要求（例如对联系人数据的合法来源与告知）。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>5. 付费、订阅与退款</h2>
+                    <p>如你购买付费服务，相关价格、周期与权益以你下单页面/订单为准。退款政策（如适用）以你购买时展示的规则为准。</p>
+                </div>
+
+                <div class="card">
+                    <h2>6. 知识产权</h2>
+                    <p>ClawGet 及其相关软件、界面、商标、文档与内容均受法律保护。未经许可不得复制、分发或用于竞争性用途。</p>
+                </div>
+
+                <div class="card">
+                    <h2>7. 服务变更与终止</h2>
+                    <ul>
+                        <li>我们可能对服务进行更新、升级或调整，并在合理情况下提前通知。</li>
+                        <li>如你严重违反本协议或法律法规，我们可暂停或终止服务并采取必要措施。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>8. 免责声明与责任限制</h2>
+                    <p>在适用法律允许范围内，服务以“现状”提供。我们不对因不可抗力、第三方原因或你自身使用方式导致的损失承担责任。我们的累计责任在法律允许范围内以你在争议发生前一定期间内向我们支付的费用为限。</p>
+                </div>
+
+                <div class="card">
+                    <h2>9. 争议解决</h2>
+                    <p>如发生争议，双方应优先友好协商；协商不成的，按你购买/使用时适用的法律与管辖规则处理。</p>
+                </div>
+
+                <div class="card">
+                    <h2>10. 联系方式</h2>
+                    <p>如对本协议有疑问，请通过帮助中心或发送邮件至：support@clawget.ai。</p>
+                    <p><strong>公司名称</strong>：格心科技集团有限公司</p>
+                    <p><strong>英文地址</strong>：Unit 903A,9/F.,Cameron Commercial Centre,458-468 Hennessy Road,Causeway Bay,Hong Kong</p>
+                    <p><strong>中文地址（简体）</strong>：香港铜锣湾轩尼诗道458-468号金联商业中心9楼903A室</p>
+                </div>
+            </div>
+
+            <div class="lang-block" data-lang="zh-HK">
+                <div class="card">
+                    <h2>1. 適用範圍</h2>
+                    <p>本協議適用於你使用 ClawGet 的網站、產品功能、API 與相關服務。你使用服務即表示你已閱讀並同意本協議及相關政策。</p>
+                </div>
+
+                <div class="card">
+                    <h2>2. 帳號與安全</h2>
+                    <ul>
+                        <li>你應提供真實、準確的資訊並及時更新。</li>
+                        <li>你應妥善保管帳號憑證，對帳號下的行為承擔責任。</li>
+                        <li>如發現異常使用或安全事件，請盡快通知我們。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>3. 合法使用</h2>
+                    <p>你承諾不會使用 ClawGet 從事違法、侵權或濫用行為，包括但不限於：</p>
+                    <ul>
+                        <li>發送垃圾訊息、詐騙、騷擾、非法行銷或違反適用反垃圾/私隱法律的行為。</li>
+                        <li>侵犯他人知識產權、私隱權或其他合法權益。</li>
+                        <li>對服務進行逆向工程、繞過安全機制、掃描漏洞、干擾可用性。</li>
+                        <li>上傳惡意代碼或利用服務傳播病毒、木馬等。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>4. 你的內容與資料</h2>
+                    <ul>
+                        <li>你對你上傳、匯入或生成的內容與資料擁有權利或已獲得必要授權。</li>
+                        <li>你授予我們在提供與改進服務所必需範圍內處理該資料的權利。</li>
+                        <li>你應遵守所在地的資料保護/行銷合規要求（例如對聯絡人資料的合法來源與告知）。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>5. 付費、訂閱與退款</h2>
+                    <p>如你購買付費服務，相關價格、週期與權益以你下單頁面/訂單為準。退款政策（如適用）以你購買時展示的規則為準。</p>
+                </div>
+
+                <div class="card">
+                    <h2>6. 知識產權</h2>
+                    <p>ClawGet 及其相關軟體、介面、商標、文件與內容均受法律保護。未經許可不得複製、分發或用於競爭性用途。</p>
+                </div>
+
+                <div class="card">
+                    <h2>7. 服務變更與終止</h2>
+                    <ul>
+                        <li>我們可能對服務進行更新、升級或調整，並在合理情況下提前通知。</li>
+                        <li>如你嚴重違反本協議或法律法規，我們可暫停或終止服務並採取必要措施。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>8. 免責聲明與責任限制</h2>
+                    <p>在適用法律允許範圍內，服務以「現狀」提供。我們不對因不可抗力、第三方原因或你自身使用方式導致的損失承擔責任。我們的累計責任在法律允許範圍內以你在爭議發生前一定期間內向我們支付的費用為限。</p>
+                </div>
+
+                <div class="card">
+                    <h2>9. 爭議解決</h2>
+                    <p>如發生爭議，雙方應優先友好協商；協商不成的，按你購買/使用時適用的法律與管轄規則處理。</p>
+                </div>
+
+                <div class="card">
+                    <h2>10. 聯絡方式</h2>
+                    <p>如對本協議有疑問，請透過幫助中心或發送電郵至：support@clawget.ai。</p>
+                    <p><strong>公司名稱</strong>：格心科技集團有限公司</p>
+                    <p><strong>英文地址</strong>：Unit 903A,9/F.,Cameron Commercial Centre,458-468 Hennessy Road,Causeway Bay,Hong Kong</p>
+                    <p><strong>中文地址（繁體）</strong>：香港銅鑼灣軒尼詩道458-468號金聯商業中心9樓903A室</p>
+                </div>
+            </div>
+
+            <div class="lang-block" data-lang="en">
+                <div class="card">
+                    <h2>1. Scope</h2>
+                    <p>These Terms govern your use of ClawGet, including the website, product features, APIs, and related services. By using the service, you agree to these Terms and related policies.</p>
+                </div>
+
+                <div class="card">
+                    <h2>2. Accounts & Security</h2>
+                    <ul>
+                        <li>Provide accurate information and keep it up to date.</li>
+                        <li>Protect your credentials and accept responsibility for activities under your account.</li>
+                        <li>Notify us promptly of any suspected security incident.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>3. Acceptable Use</h2>
+                    <p>You will not use ClawGet for unlawful, infringing, or abusive activities, including:</p>
+                    <ul>
+                        <li>Spam, fraud, harassment, illegal marketing, or violations of anti-spam/privacy laws.</li>
+                        <li>Infringing intellectual property, privacy, or other rights.</li>
+                        <li>Reverse engineering, bypassing security, vulnerability scanning, or disrupting availability.</li>
+                        <li>Uploading malware or using the service to distribute harmful code.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>4. Your Data</h2>
+                    <ul>
+                        <li>You represent you have lawful rights or necessary permissions for data you upload/import/generate.</li>
+                        <li>You grant us the right to process such data as necessary to provide and improve the service.</li>
+                        <li>You are responsible for compliance with applicable data protection and marketing laws.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>5. Billing, Subscriptions & Refunds</h2>
+                    <p>If you purchase paid services, pricing, billing cycles, and entitlements follow your order page/receipt. Refunds (if any) follow the rules displayed at purchase time.</p>
+                </div>
+
+                <div class="card">
+                    <h2>6. Intellectual Property</h2>
+                    <p>ClawGet software, interfaces, trademarks, documentation, and content are protected by law. You may not copy, distribute, or use them for competitive purposes without permission.</p>
+                </div>
+
+                <div class="card">
+                    <h2>7. Changes & Termination</h2>
+                    <ul>
+                        <li>We may update or modify the service and will provide reasonable notice when appropriate.</li>
+                        <li>We may suspend or terminate access for serious violations of these Terms or applicable law.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>8. Disclaimers & Limitation of Liability</h2>
+                    <p>To the fullest extent permitted by law, the service is provided “as is.” We are not liable for losses caused by force majeure, third parties, or your own use. Our aggregate liability is limited to the fees you paid to us within a limited period before the claim, as permitted by law.</p>
+                </div>
+
+                <div class="card">
+                    <h2>9. Dispute Resolution</h2>
+                    <p>Disputes should first be resolved through good-faith negotiation. If unresolved, applicable law and jurisdiction rules at the time of purchase/use will apply.</p>
+                </div>
+
+                <div class="card">
+                    <h2>10. Contact</h2>
+                    <p>Questions: contact us via the Help Center or email support@clawget.ai.</p>
+                    <p><strong>Company</strong>: LATTICE CORE LIMITED</p>
+                    <p><strong>Address</strong>: Unit 903A,9/F.,Cameron Commercial Centre,458-468 Hennessy Road,Causeway Bay,Hong Kong</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            function applyLang() {
+                const lang = document.documentElement.lang || 'zh-CN';
+                document.querySelectorAll('.lang-block').forEach((el) => {
+                    el.classList.toggle('is-active', el.getAttribute('data-lang') === lang);
+                });
+            }
+
+            applyLang();
+            const obs = new MutationObserver(applyLang);
+            obs.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+        })();
+    </script>
+    <script src="./i18n/index.zh-CN.js"></script>
+    <script src="./i18n/runtime.js"></script>
+</body>
+</html>

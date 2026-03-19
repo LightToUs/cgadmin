@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="i18n-title" content="help.meta.title">
+    <title>ClawGet · 帮助</title>
+    <!-- 保持与官网一致的现代简洁风格，融入柔和的技术色调 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #fbfcfd;
+            color: #1a2634;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+        }
+
+        .navbar {
+            background: #fbfcfd;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: #1a2634;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-icon {
+            background: #ff6b4a;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transform: rotate(-5deg);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1a2634;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b4a;
+        }
+
+        .nav-links a.nav-active {
+            color: #ff6b4a;
+        }
+
+        .nav-control {
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn {
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn.nav-control {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 16px;
+            text-align: center;
+        }
+
+        .btn-login {
+            background: #ffffff;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            color: #1a2634;
+        }
+
+        .btn-login:hover {
+            border-color: #ff6b4a;
+            transform: translateY(-2px);
+        }
+
+        .lang-select {
+            appearance: none;
+            padding: 0 14px;
+            line-height: 40px;
+            border-radius: 40px;
+            border: 1px solid #eaeaea;
+            background: white;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-align-last: center;
+        }
+
+        .nav-home-btn {
+            display: none;
+        }
+
+        /* 头部导航 (极简，与官网呼应) */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 0 0.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 2.5rem;
+        }
+
+        .logo-marker {
+            background: #ff6b4a;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            transform: rotate(-3deg);
+        }
+
+        .logo-text {
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: #1a2634;
+            letter-spacing: -0.02em;
+        }
+
+        .badge {
+            background: #e8edf5;
+            color: #2c3e50;
+            border-radius: 30px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-left: 0.75rem;
+        }
+
+        /* 主标题 */
+        .page-title {
+            margin-bottom: 2.5rem;
+        }
+
+        .page-title h1 {
+            font-size: 2.5rem;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            background: linear-gradient(145deg, #1a2634 0%, #2d4059 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-title .sub {
+            font-size: 1.2rem;
+            color: #4a5a6e;
+            max-width: 800px;
+            border-left: 4px solid #ff6b4a;
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        /* 卡片与区块 */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title span {
+            background: #ff6b4a;
+            color: white;
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem 1.8rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e9ecf0;
+            transition: transform 0.1s ease, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.04);
+            border-color: #d0d9e4;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: #2e3b4e;
+            margin-bottom: 1.2rem;
+        }
+
+        .tech-tag {
+            display: inline-block;
+            background: #eef2f7;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1e2b3a;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid #dce3ec;
+        }
+
+        /* 原则区块 (T3 axioms 带点趣味) */
+        .axioms {
+            background: #f2f6fc;
+            border-radius: 32px;
+            padding: 2.5rem 2rem;
+            margin: 3rem 0;
+            border: 1px solid #dbe4f0;
+        }
+
+        .axiom-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: flex-start;
+        }
+
+        .axiom-num {
+            background: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: #ff6b4a;
+            border: 1px solid #d0ddeb;
+            flex-shrink: 0;
+        }
+
+        .axiom-content h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+
+        .axiom-content p {
+            color: #31475e;
+        }
+
+        /* 表格风格 (CLI选项) */
+        .cli-table {
+            background: white;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            margin: 2rem 0;
+        }
+
+        .cli-row {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            border-bottom: 1px solid #ecf1f7;
+        }
+
+        .cli-row:last-child {
+            border-bottom: none;
+        }
+
+        .cli-flag {
+            background: #f8fafd;
+            padding: 1rem 1.5rem;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-weight: 600;
+            color: #1f2b38;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .cli-desc {
+            padding: 1rem 1.5rem;
+            color: #2d3f57;
+        }
+
+        .code-inline {
+            background: #eef3f9;
+            border-radius: 8px;
+            padding: 0.2rem 0.6rem;
+            font-family: monospace;
+            font-size: 0.95rem;
+            color: #d14;
+            border: 1px solid #d4deec;
+        }
+
+        .install-box {
+            background: #1a2634;
+            color: #e2e8f0;
+            border-radius: 40px;
+            padding: 1rem 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            font-family: 'SF Mono', monospace;
+            font-size: 1.1rem;
+            border: 1px solid #334153;
+            margin: 1rem 0 2rem;
+            flex-wrap: wrap;
+        }
+
+        .install-box span {
+            color: #ff9f8c;
+        }
+
+        .btn-copy {
+            background: #2e3d51;
+            border: none;
+            color: white;
+            border-radius: 30px;
+            padding: 0.3rem 1.2rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.1s;
+        }
+
+        .btn-copy:hover {
+            background: #405e7c;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dee6f0;
+            margin: 2.5rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #5d7188;
+            font-size: 0.95rem;
+            margin-top: 3rem;
+            border-top: 1px solid #e2eaf2;
+            padding-top: 2rem;
+        }
+
+        .lang-block {
+            display: none;
+        }
+
+        .lang-block.is-active {
+            display: block;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+            .nav-home-btn {
+                display: inline-flex;
+            }
+            .container {
+                padding-top: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a class="logo" href="./index.html">
+                <span class="logo-icon" >🦞</span>
+                <span>ClawGet</span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="./index.html" data-i18n="nav.home">首页</a>
+                    <a href="./index.html#solutions" data-i18n="nav.product">产品</a>
+                    <a href="./index.html#channels" data-i18n="nav.channels">渠道</a>
+                    <a href="./index.html#testimonials" data-i18n="nav.testimonials">案例</a>
+                    <a href="./index.html#pricing" data-i18n="nav.pricing">定价</a>
+                    <a href="./help.html" class="nav-active" data-i18n="nav.docs">帮助</a>
+                </div>
+                <select id="langSelect" class="lang-select nav-control" data-i18n-attr="aria-label:common.language">
+                    <option value="zh-CN" selected>中文</option>
+                    <option value="zh-HK">繁體</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="lang-block is-active" data-lang="zh-CN">
+            <!-- 主标题 融合之前对话中的全球化、主动获客气场 -->
+            <div class="page-title">
+                <h1>⚡ 全栈类型安全 · T3 Stack</h1>
+                <div class="sub">ClawGet 控制台、官网、文档站正是基于这套现代工具链构建 —— 快速、可靠、可扩展</div>
+            </div>
+
+            <!-- 一句话安装 (保持官网上的那种极简) -->
+            <div class="install-box">
+                <span>$</span> npm create t3-app@latest
+                <button class="btn-copy" data-copy-text="npm create t3-app@latest">复制</button>
+            </div>
+            <p style="margin-top: -0.5rem; color: #5b6f89; font-size:0.95rem;">🚀 创建一个新的 T3 项目 —— 所有模块可选，按需组合</p>
+
+            <!-- 介绍 T3 Stack 是什么 (源自官网) -->
+            <h2 class="section-title">📦 什么是 T3 Stack？</h2>
+            <p style="font-size: 1.15rem; max-width: 900px; margin-bottom: 2rem;">由 <strong>Theo</strong> 创建的 Web 开发技术栈，聚焦于<strong>简洁性、模块化、全栈类型安全</strong> [citation:1]。核心包含 <strong>Next.js</strong> 和 <strong>TypeScript</strong>，并围绕它们搭配了业内顶尖的库，但保持每个部分可选——按需调换 [citation:1][citation:4]。</p>
+
+            <!-- 六大核心技术卡片 (取自搜索结果) -->
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-icon">▲</div>
+                    <h3>Next.js</h3>
+                    <p>React 框架，提供服务端渲染、静态生成、API 路由。让 UI 开发快速且高度优化，引导开发者做出正确决策 [citation:8]。</p>
+                    <span class="tech-tag">SSR/SSG</span><span class="tech-tag">App Router</span><span class="tech-tag">File-based routing</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">TS</div>
+                    <h3>TypeScript</h3>
+                    <p>不是可选项——是基石。提供实时反馈、智能补全，让代码更健壮。“类型安全让你更快写代码” [citation:8]。</p>
+                    <span class="tech-tag">严格模式</span><span class="tech-tag">端到端类型</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3>Tailwind CSS</h3>
+                    <p>实用优先的 CSS 框架，被誉为“禅式 CSS”。无需命名 class，快速构建美观界面，且保持完全定制自由 [citation:8]。</p>
+                    <span class="tech-tag">原子类</span><span class="tech-tag">响应式</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔗</div>
+                    <h3>tRPC</h3>
+                    <p>端到端类型安全 API，无需 REST 或 GraphQL 样板。通过 TypeScript 自动推断前后端类型，开发体验极佳 [citation:1][citation:8]。</p>
+                    <span class="tech-tag">无 schema</span><span class="tech-tag">轻量</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🗄️</div>
+                    <h3>Prisma</h3>
+                    <p>下一代 Node.js/TS ORM。从数据库 schema 生成类型，保证从数据库到应用的类型安全。提供 Prisma Studio 图形化操作 [citation:8]。</p>
+                    <span class="tech-tag">ORM</span><span class="tech-tag">类型安全</span><span class="tech-tag">迁移工具</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔐</div>
+                    <h3>NextAuth.js</h3>
+                    <p>为 Next.js 量身定制的身份验证方案。支持 OAuth、邮箱、众多数据库适配器，无需自己构建安全措施 [citation:8]。</p>
+                    <span class="tech-tag">OAuth</span><span class="tech-tag">适配器</span><span class="tech-tag">session</span>
+                </div>
+            </div>
+
+            <!-- T3 三大原则 (来源官网, 整理为更易读的区块) -->
+            <div class="axioms">
+                <h2 style="font-size: 1.9rem; font-weight: 600; margin-bottom: 2rem;">🧠 T3 核心理念</h2>
+                <div class="axiom-item">
+                    <div class="axiom-num">1</div>
+                    <div class="axiom-content">
+                        <h4>解决问题，而不是堆砌</h4>
+                        <p>每个被加入的工具必须解决核心技术中的特定痛点。因此不会包含状态管理库（如 zustand），但会深度集成 Prisma、tRPC 这类解决类型安全与数据流问题的库 [citation:1][citation:4]。</p>
+                    </div>
+                </div>
+                <div class="axiom-item">
+                    <div class="axiom-num">2</div>
+                    <div class="axiom-content">
+                        <h4>负责任地“尝鲜”</h4>
+                        <p>在风险较低的部分采用前沿技术（如 tRPC，本质只是一堆函数，移除容易）；但对数据库等核心层选择成熟方案（SQL），避免被新技术的陷阱拖累 [citation:1][citation:7]。</p>
+                    </div>
+                </div>
+                <div class="axiom-item">
+                    <div class="axiom-num">3</div>
+                    <div class="axiom-content">
+                        <h4>类型安全不可妥协</h4>
+                        <p>全栈类型安全是 T3 的承诺。TypeScript + tRPC 保证前后端类型一致，Prisma 保证数据库类型安全。任何削弱类型安全的决定都不应出现在这个栈中 [citation:1][citation:9]。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- create-t3-app CLI 作用 + 安装方式 -->
+            <h2 class="section-title"><span>🧩</span> create-t3-app · 脚手架 CLI</h2>
+            <p><strong>它不是普通的模板，而是一个交互式命令行工具</strong>，由经验丰富的 T3 开发者构建。运行后根据你的选择（tRPC？Prisma？NextAuth？）生成最小化、模块化的项目骨架 [citation:3][citation:4]。所有选项均可选——这正是模块化的核心 [citation:1]。</p>
+
+            <div class="cli-table">
+                <div class="cli-row"><span class="cli-flag">npm create t3-app@latest [dir]</span><span class="cli-desc">以指定目录名称创建项目</span></div>
+                <div class="cli-row"><span class="cli-flag">--noGit</span><span class="cli-desc">不初始化 git 仓库</span></div>
+                <div class="cli-row"><span class="cli-flag">-y, --default</span><span class="cli-desc">跳过提问，使用全部默认选项 (相当于全选)</span></div>
+                <div class="cli-row"><span class="cli-flag">--noInstall</span><span class="cli-desc">生成项目但不安装依赖</span></div>
+            </div>
+
+            <h3 style="font-weight: 600; margin: 2rem 0 0.8rem;">⚙️ 实验性 CI 模式（无人值守生成）</h3>
+            <p>搭配 <span class="code-inline">--CI</span> 标志可使用如下选项精确控制技术栈：</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1rem 0 2rem;">
+                <div><span class="code-inline">--trpc</span> / <span class="code-inline">--prisma</span> / <span class="code-inline">--drizzle</span></div>
+                <div><span class="code-inline">--nextAuth</span> / <span class="code-inline">--tailwind</span></div>
+                <div><span class="code-inline">--dbProvider</span> (mysql, postgres, sqlite…)</div>
+                <div><span class="code-inline">--appRouter</span> (使用 Next.js App Router)</div>
+            </div>
+            <p style="background: #f2f5f9; padding: 1rem 1.5rem; border-radius: 30px;">示例：<span class="code-inline">pnpm dlx create-t3-app@latest --CI --trpc --tailwind --nextAuth --drizzle --dbProvider postgres</span> [citation:2]</p>
+
+            <!-- 与 ClawGet 的关系 (呼应之前的技术架构对话) -->
+            <hr>
+            <h2 class="section-title">🦞 ClawGet 为什么采用 T3 Stack？</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; background: #f6faff; border-radius: 32px; padding: 2rem;">
+                <div style="flex: 1; min-width: 240px;">
+                    <h3 style="margin-bottom: 1rem;">🌐 官网 & 控制台</h3>
+                    <p>ClawGet 的官网、用户仪表盘、帮助文档均基于 T3 Stack 构建。借助 <strong>Next.js</strong> 的国际化路由快速部署多语言页面；<strong>Tailwind</strong> 实现官网“龙虾色”UI；<strong>TypeScript</strong> 保证前后端类型一致，对接 OpenClaw Python 核心时错误率降低。</p>
+                </div>
+                <div style="flex: 1; min-width: 240px;">
+                    <h3 style="margin-bottom: 1rem;">⚡ 与 OpenClaw 核心的配合</h3>
+                    <p>T3 层主要负责用户交互、任务编排界面，通过 REST/WebSocket 与 Python 智能体通信。类型安全让 API 契约清晰，联调效率倍增。未来可借助 tRPC 实现内部工具的类型安全调用。</p>
+                </div>
+                <div style="flex: 1; min-width: 200px;">
+                    <h3 style="margin-bottom: 1rem;">📈 扩展性</h3>
+                    <p>Prisma 管理用户、线索、任务等关系数据，与 PostgreSQL 无缝协作；NextAuth 轻松接入多种认证（Google、GitHub），为未来多租户做好准备。</p>
+                </div>
+            </div>
+            <p style="margin-top: 1.5rem; font-style: italic; color: #4d6884;">“我们不重复造轮子，我们站在巨人的肩膀上专注获客智能。” —— ClawGet 工程团队</p>
+
+            <!-- 社区与资源 -->
+            <div style="background: white; border-radius: 40px; border: 1px solid #e6ebf3; padding: 2rem; margin: 3rem 0;">
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;">
+                    <div style="flex: 1;">
+                        <h3 style="font-size: 1.8rem;">📚 学习资源</h3>
+                        <p style="margin: 1rem 0;">T3 Stack 官方文档、Discord 社区活跃，YouTube 有创始人的深度讲解 [citation:3][citation:9]。</p>
+                        <a href="https://create.t3.gg/" target="_blank" style="background: #ff6b4a; color: white; padding: 0.6rem 2rem; border-radius: 40px; text-decoration: none; display: inline-block; font-weight: 500;">访问 create.t3.gg →</a>
+                    </div>
+                    <div style="flex: 1; color: #3b5c7a;">
+                        <p>🔹 <strong>Discord</strong>：t3.gg/discord [citation:6]</p>
+                        <p>🔹 <strong>GitHub</strong>：t3-oss/create-t3-app</p>
+                        <p>🔹 <strong>部署指南</strong>：Vercel / Netlify / Docker [citation:6]</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-note">
+                ClawGet —— 你的 24/7 全球获客员工。框架基于 MIT 许可，感谢 T3 社区。<br>
+                © 2026 ClawGet. 简单获客，全球增长。
+            </div>
+        </div>
+
+        <div class="lang-block" data-lang="en">
+            <div class="page-title">
+                <h1>⚡ Full-stack type safety · T3 Stack</h1>
+                <div class="sub">ClawGet Console, website, and docs are built on this modern toolchain — fast, reliable, and scalable.</div>
+            </div>
+
+            <div class="install-box">
+                <span>$</span> npm create t3-app@latest
+                <button class="btn-copy" data-copy-text="npm create t3-app@latest">Copy</button>
+            </div>
+            <p style="margin-top: -0.5rem; color: #5b6f89; font-size:0.95rem;">🚀 Create a new T3 project — every module is optional, choose what you need.</p>
+
+            <h2 class="section-title">📦 What is the T3 Stack?</h2>
+            <p style="font-size: 1.15rem; max-width: 900px; margin-bottom: 2rem;">Created by <strong>Theo</strong>, the T3 Stack focuses on <strong>simplicity, modularity, and end-to-end type safety</strong> [citation:1]. It centers around <strong>Next.js</strong> and <strong>TypeScript</strong>, with best-in-class optional libraries you can swap as needed [citation:1][citation:4].</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-icon">▲</div>
+                    <h3>Next.js</h3>
+                    <p>A React framework providing SSR/SSG and API routes. It enables fast UI development and strong optimization while guiding good defaults [citation:8].</p>
+                    <span class="tech-tag">SSR/SSG</span><span class="tech-tag">App Router</span><span class="tech-tag">File-based routing</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">TS</div>
+                    <h3>TypeScript</h3>
+                    <p>Not optional — the foundation. It gives instant feedback and autocomplete for more robust code. “Type safety helps you ship faster” [citation:8].</p>
+                    <span class="tech-tag">Strict mode</span><span class="tech-tag">End-to-end types</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3>Tailwind CSS</h3>
+                    <p>A utility-first CSS framework. Build polished UIs quickly without naming classes, while staying fully customizable [citation:8].</p>
+                    <span class="tech-tag">Utilities</span><span class="tech-tag">Responsive</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔗</div>
+                    <h3>tRPC</h3>
+                    <p>End-to-end type-safe APIs without REST/GraphQL boilerplate. TypeScript inference keeps client and server types aligned [citation:1][citation:8].</p>
+                    <span class="tech-tag">No schema</span><span class="tech-tag">Lightweight</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🗄️</div>
+                    <h3>Prisma</h3>
+                    <p>A next-gen Node.js/TS ORM. It generates types from your schema and keeps database interactions type-safe, with Prisma Studio for inspection [citation:8].</p>
+                    <span class="tech-tag">ORM</span><span class="tech-tag">Type-safe</span><span class="tech-tag">Migrations</span>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔐</div>
+                    <h3>NextAuth.js</h3>
+                    <p>Authentication for Next.js with OAuth/email and many adapters, so you don’t have to build security from scratch [citation:8].</p>
+                    <span class="tech-tag">OAuth</span><span class="tech-tag">Adapters</span><span class="tech-tag">Session</span>
+                </div>
+            </div>
+
+            <div class="axioms">
+                <h2 style="font-size: 1.9rem; font-weight: 600; margin-bottom: 2rem;">🧠 Core T3 Principles</h2>
+                <div class="axiom-item">
+                    <div class="axiom-num">1</div>
+                    <div class="axiom-content">
+                        <h4>Solve problems, don’t collect tools</h4>
+                        <p>Every tool must solve a concrete pain point. That’s why it may omit generic state libraries, but deeply integrates Prisma/tRPC to address data flow and type safety [citation:1][citation:4].</p>
+                    </div>
+                </div>
+                <div class="axiom-item">
+                    <div class="axiom-num">2</div>
+                    <div class="axiom-content">
+                        <h4>“Try new things” responsibly</h4>
+                        <p>Use cutting-edge tech where risk is low (e.g., tRPC is “just functions” and easy to remove), while keeping mature choices for the core (SQL) [citation:1][citation:7].</p>
+                    </div>
+                </div>
+                <div class="axiom-item">
+                    <div class="axiom-num">3</div>
+                    <div class="axiom-content">
+                        <h4>Type safety is non‑negotiable</h4>
+                        <p>End-to-end type safety is the promise. TypeScript + tRPC keeps types consistent; Prisma makes database access type-safe. Don’t compromise this principle [citation:1][citation:9].</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title"><span>🧩</span> create-t3-app · CLI scaffold</h2>
+            <p><strong>Not a simple template, but an interactive CLI</strong> built by experienced T3 developers. It generates a minimal, modular project based on your selections (tRPC? Prisma? NextAuth?) [citation:3][citation:4]. Everything is optional — modularity is the point [citation:1].</p>
+
+            <div class="cli-table">
+                <div class="cli-row"><span class="cli-flag">npm create t3-app@latest [dir]</span><span class="cli-desc">Create a project in the given directory</span></div>
+                <div class="cli-row"><span class="cli-flag">--noGit</span><span class="cli-desc">Do not initialize a git repository</span></div>
+                <div class="cli-row"><span class="cli-flag">-y, --default</span><span class="cli-desc">Skip prompts and use defaults</span></div>
+                <div class="cli-row"><span class="cli-flag">--noInstall</span><span class="cli-desc">Generate without installing dependencies</span></div>
+            </div>
+
+            <h3 style="font-weight: 600; margin: 2rem 0 0.8rem;">⚙️ Experimental CI mode (non-interactive)</h3>
+            <p>With <span class="code-inline">--CI</span>, you can control the stack with flags:</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1rem 0 2rem;">
+                <div><span class="code-inline">--trpc</span> / <span class="code-inline">--prisma</span> / <span class="code-inline">--drizzle</span></div>
+                <div><span class="code-inline">--nextAuth</span> / <span class="code-inline">--tailwind</span></div>
+                <div><span class="code-inline">--dbProvider</span> (mysql, postgres, sqlite…)</div>
+                <div><span class="code-inline">--appRouter</span> (Next.js App Router)</div>
+            </div>
+            <p style="background: #f2f5f9; padding: 1rem 1.5rem; border-radius: 30px;">Example: <span class="code-inline">pnpm dlx create-t3-app@latest --CI --trpc --tailwind --nextAuth --drizzle --dbProvider postgres</span> [citation:2]</p>
+
+            <hr>
+            <h2 class="section-title">🦞 Why does ClawGet use the T3 Stack?</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; background: #f6faff; border-radius: 32px; padding: 2rem;">
+                <div style="flex: 1; min-width: 240px;">
+                    <h3 style="margin-bottom: 1rem;">🌐 Website & Console</h3>
+                    <p>ClawGet’s website, dashboard, and docs are built with the T3 Stack. Next.js helps deliver multilingual pages; Tailwind matches our brand UI; TypeScript keeps contracts consistent for faster iteration.</p>
+                </div>
+                <div style="flex: 1; min-width: 240px;">
+                    <h3 style="margin-bottom: 1rem;">⚡ Working with the core agent</h3>
+                    <p>The T3 layer focuses on user experiences and orchestration. Clear, typed contracts make integration and iteration much faster.</p>
+                </div>
+                <div style="flex: 1; min-width: 200px;">
+                    <h3 style="margin-bottom: 1rem;">📈 Scalability</h3>
+                    <p>Prisma manages relational data cleanly; NextAuth simplifies authentication options — preparing us for multi-tenant growth.</p>
+                </div>
+            </div>
+            <p style="margin-top: 1.5rem; font-style: italic; color: #4d6884;">“We don’t reinvent wheels — we stand on giants’ shoulders and focus on acquisition intelligence.” — ClawGet Engineering</p>
+
+            <div style="background: white; border-radius: 40px; border: 1px solid #e6ebf3; padding: 2rem; margin: 3rem 0;">
+                <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;">
+                    <div style="flex: 1;">
+                        <h3 style="font-size: 1.8rem;">📚 Learning resources</h3>
+                        <p style="margin: 1rem 0;">T3 has great docs, an active Discord, and deep dives on YouTube [citation:3][citation:9].</p>
+                        <a href="https://create.t3.gg/" target="_blank" style="background: #ff6b4a; color: white; padding: 0.6rem 2rem; border-radius: 40px; text-decoration: none; display: inline-block; font-weight: 500;">Visit create.t3.gg →</a>
+                    </div>
+                    <div style="flex: 1; color: #3b5c7a;">
+                        <p>🔹 <strong>Discord</strong>: t3.gg/discord [citation:6]</p>
+                        <p>🔹 <strong>GitHub</strong>: t3-oss/create-t3-app</p>
+                        <p>🔹 <strong>Deployment</strong>: Vercel / Netlify / Docker [citation:6]</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-note">
+                © 2026 ClawGet. Simple acquisition, global growth.
+            </div>
+        </div>
+    </div>
+
+    <script src="./i18n/index.zh-CN.js"></script>
+    <script src="./i18n/runtime.js"></script>
+
+    <script>
+        (function () {
+            function applyLang() {
+                const lang = document.documentElement.lang || 'zh-CN';
+                let effectiveLang = lang;
+                if (lang === 'zh-HK' && !document.querySelector('.lang-block[data-lang="zh-HK"]')) {
+                    effectiveLang = 'zh-CN';
+                }
+                document.querySelectorAll('.lang-block').forEach((el) => {
+                    el.classList.toggle('is-active', el.getAttribute('data-lang') === effectiveLang);
+                });
+            }
+
+            applyLang();
+            const obs = new MutationObserver(applyLang);
+            obs.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+        })();
+    </script>
+
+    <!-- 简单的复制反馈脚本 -->
+    <script>
+        document.addEventListener('click', (e) => {
+            const btn = e.target?.closest?.('.btn-copy');
+            if (!btn) return;
+            const text = btn.getAttribute('data-copy-text') || 'npm create t3-app@latest';
+            const lang = document.documentElement.lang || 'zh-CN';
+            navigator.clipboard?.writeText(text).then(() => {
+                const original = btn.innerText;
+                btn.innerText = lang === 'en' ? '✓ Copied' : (lang === 'zh-HK' ? '✓ 已複製' : '✓ 已复制');
+                setTimeout(() => { btn.innerText = original; }, 2000);
+            }).catch(() => {
+                alert((lang === 'en' ? 'Copy manually: ' : (lang === 'zh-HK' ? '手動複製: ' : '手动复制: ')) + text);
+            });
+        });
+    </script>
+</body>
+</html>

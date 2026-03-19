@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="i18n-title" content="payment.page.meta.title">
+    <title>ClawGet · 支付</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+        .navbar {
+            border-bottom: 1px solid #eaeaea;
+            background: #ffffff;
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: block;
+            object-fit: contain;
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .nav-control {
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lang-select {
+            appearance: none;
+            padding: 0 14px;
+            line-height: 40px;
+            border-radius: 40px;
+            border: 1px solid #eaeaea;
+            background: white;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-align-last: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+        .card {
+            max-width: 720px;
+            border: 1px solid #eaeaea;
+            border-radius: 24px;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 10px;
+        }
+        .row {
+            margin-top: 10px;
+            color: #333;
+        }
+        .muted {
+            color: #666;
+        }
+        .btn {
+            margin-top: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 42px;
+            padding: 0 18px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 1px solid #eaeaea;
+            color: #1a1a1a;
+            background: #ffffff;
+            transition: all 0.2s;
+        }
+        .btn:hover {
+            border-color: #ff6b4a;
+            transform: translateY(-1px);
+        }
+        @media (max-width: 520px) {
+            .container { padding: 28px 16px 60px; }
+            h1 { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a class="logo" href="./index.html">
+                <img class="logo-icon" src="./image/logo.png" alt="ClawGet">
+                <span>ClawGet</span>
+            </a>
+            <div class="nav-right">
+                <select id="langSelect" class="lang-select nav-control" data-i18n-attr="aria-label:common.language">
+                    <option value="zh-CN" selected>中文</option>
+                    <option value="zh-HK">繁體</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h1 data-i18n="payment.page.title">支付</h1>
+            <div class="row">
+                <span class="muted" data-i18n="payment.page.planLabel">套餐</span>
+                <span id="payPlanValue"></span>
+            </div>
+            <div class="row">
+                <span class="muted" data-i18n="payment.page.emailLabel">邮箱</span>
+                <span id="payEmailValue"></span>
+            </div>
+            <div class="row muted" data-i18n="payment.page.note">这里可以接入你的支付服务（如 Stripe / 支付宝 / 微信支付）。</div>
+            <a class="btn" href="./index.html" data-i18n="payment.page.back">返回首页</a>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            function getQuery() {
+                try { return new URL(window.location.href).searchParams; } catch { return new URLSearchParams(); }
+            }
+            const params = getQuery();
+            const plan = (params.get('plan') || '').toLowerCase();
+            const email = params.get('email') || '';
+            const planEl = document.getElementById('payPlanValue');
+            const emailEl = document.getElementById('payEmailValue');
+            if (emailEl) emailEl.textContent = email ? `：${email}` : '';
+            if (planEl) planEl.textContent = plan ? `：${plan}` : '';
+        })();
+    </script>
+    <script src="./i18n/index.zh-CN.js"></script>
+    <script src="./i18n/runtime.js"></script>
+</body>
+</html>

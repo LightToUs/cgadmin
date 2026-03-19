@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="i18n-title" content="legal.privacy.meta.title">
+    <title>ClawGet · 隐私政策</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .navbar {
+            border-bottom: 1px solid #eaeaea;
+            background: #ffffff;
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 1.5rem;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+         .logo-icon {
+            background: #ff6b4a;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transform: rotate(-5deg);
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b4a;
+        }
+
+        .nav-links a.nav-active {
+            color: #ff6b4a;
+        }
+
+        .nav-control {
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn {
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn.nav-control {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 16px;
+            text-align: center;
+        }
+
+        .btn-login {
+            background: #ffffff;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            color: #1a1a1a;
+        }
+
+        .btn-login:hover {
+            border-color: #ff6b4a;
+            transform: translateY(-2px);
+        }
+
+        .lang-select {
+            appearance: none;
+            padding: 0 14px;
+            line-height: 40px;
+            border-radius: 40px;
+            border: 1px solid #eaeaea;
+            background: white;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-align-last: center;
+        }
+
+        .nav-home-btn {
+            display: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 36px 24px 80px;
+        }
+
+        .hero {
+            max-width: 900px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            letter-spacing: -0.02em;
+        }
+
+        .meta {
+            margin-top: 10px;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .content {
+            margin-top: 26px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            max-width: 900px;
+        }
+
+        .card {
+            border: 1px solid #eaeaea;
+            border-radius: 18px;
+            padding: 18px 18px;
+            background: #fff;
+        }
+
+        .card h2 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .card ul {
+            padding-left: 18px;
+            color: #333;
+        }
+
+        .card li {
+            margin: 6px 0;
+        }
+
+        .lang-block {
+            display: none;
+        }
+
+        .lang-block.is-active {
+            display: block;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+            .nav-home-btn {
+                display: inline-flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a class="logo" href="./index.html">
+                <!-- <img class="logo-icon" src="./image/logo.png" alt="ClawGet"> -->
+                          <span class="logo-icon" >🦞</span>
+                <span>ClawGet</span>
+            </a>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="./index.html" data-i18n="nav.home">首页</a>
+                    <a href="./help.html" data-i18n="nav.docs">帮助</a>
+                    <a href="./privacy.html" class="nav-active" data-i18n="nav.privacy">隐私</a>
+                    <a href="./terms.html" data-i18n="nav.terms">条款</a>
+                </div>
+                <a href="./index.html" class="btn btn-login nav-control nav-home-btn" data-i18n="nav.home">首页</a>
+                <select id="langSelect" class="lang-select nav-control" data-i18n-attr="aria-label:common.language">
+                    <option value="zh-CN" selected>中文</option>
+                    <option value="zh-HK">繁體</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero">
+            <h1 data-i18n="legal.privacy.title">隐私政策</h1>
+            <div class="meta">
+                <span data-i18n="legal.updatedLabel">更新日期</span>
+                <span>：2026-03-18</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="lang-block" data-lang="zh-CN">
+                <div class="card">
+                    <h2>1. 我们收集哪些信息</h2>
+                    <p>为提供 ClawGet 服务（网站、产品与支持），我们可能收集：</p>
+                    <ul>
+                        <li><strong>账号信息</strong>：姓名/昵称、邮箱、登录凭证相关信息（如第三方 OAuth 标识）。</li>
+                        <li><strong>业务使用数据</strong>：你在产品内的配置、操作记录、功能使用情况、错误日志与性能数据。</li>
+                        <li><strong>沟通与支持</strong>：你通过工单、邮件、社区等渠道提交的内容与附件。</li>
+                        <li><strong>设备与访问数据</strong>：IP、浏览器类型、操作系统、访问时间、页面来源、Cookie/本地存储标识。</li>
+                        <li><strong>你导入/上传的数据</strong>：例如你自有的客户线索、联系人、模板、知识库内容等（你应确保对该数据拥有合法权利）。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>2. 我们如何使用信息</h2>
+                    <ul>
+                        <li>提供、维护与改进服务（功能交付、故障排查、性能优化）。</li>
+                        <li>账号管理与安全（身份验证、风控、反欺诈、审计）。</li>
+                        <li>客户支持与沟通（处理咨询、发送服务通知与重要变更）。</li>
+                        <li>统计分析与产品迭代（以汇总或去标识化方式为主）。</li>
+                        <li>遵守法律义务与执法请求（在适用法律允许范围内）。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>3. 共享与披露</h2>
+                    <p>我们不会出售你的个人信息。我们可能在以下情形共享：</p>
+                    <ul>
+                        <li><strong>服务提供商</strong>：用于托管、监控、分析、支付、客服等（按需最小化）。</li>
+                        <li><strong>合规与安全</strong>：为满足法律、监管、法院命令或保护权利与安全。</li>
+                        <li><strong>业务变更</strong>：并购、重组、资产转让时，在合理必要范围内转移。</li>
+                        <li><strong>你的指示</strong>：你主动启用的第三方集成、连接器或导出行为。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>4. Cookie 与本地存储</h2>
+                    <p>我们使用 Cookie/本地存储用于登录态、偏好（如语言）、安全与统计。你可以在浏览器设置中管理或清除它们，但可能影响部分功能。</p>
+                </div>
+
+                <div class="card">
+                    <h2>5. 数据保留</h2>
+                    <p>我们仅在实现本政策所述目的所需的最短期限内保留数据，或在法律要求/允许的期限内保留。你可通过产品功能或联系支持申请删除（如适用）。</p>
+                </div>
+
+                <div class="card">
+                    <h2>6. 安全措施</h2>
+                    <p>我们采用合理的管理、技术与物理安全措施（访问控制、传输加密、日志审计等）保护数据。但互联网传输不可能 100% 安全。</p>
+                </div>
+
+                <div class="card">
+                    <h2>7. 你的权利</h2>
+                    <p>你可能享有访问、更正、删除、撤回同意、限制处理、数据可携带等权利（取决于你的所在地法律）。你可通过帮助页或邮件联系我们。</p>
+                </div>
+
+                <div class="card">
+                    <h2>8. 儿童隐私</h2>
+                    <p>ClawGet 面向企业与成人用户。我们不会在知情情况下收集未成年人个人信息。</p>
+                </div>
+
+                <div class="card">
+                    <h2>9. 跨境传输</h2>
+                    <p>为提供服务，你的数据可能在你所在国家/地区以外被处理。我们将采取合同、技术与组织措施保障跨境处理的合规与安全。</p>
+                </div>
+
+                <div class="card">
+                    <h2>10. 联系我们</h2>
+                    <p>如对本隐私政策有疑问或请求，请通过帮助中心或发送邮件至：support@clawget.ai。</p>
+                    <p><strong>公司名称</strong>：格心科技集团有限公司</p>
+                    <p><strong>英文地址</strong>：Unit 903A,9/F.,Cameron Commercial Centre,458-468 Hennessy Road,Causeway Bay,Hong Kong</p>
+                    <p><strong>中文地址（简体）</strong>：香港铜锣湾轩尼诗道458-468号金联商业中心9楼903A室</p>
+                </div>
+            </div>
+
+            <div class="lang-block" data-lang="zh-HK">
+                <div class="card">
+                    <h2>1. 我們收集哪些資訊</h2>
+                    <p>為提供 ClawGet 服務（網站、產品與支援），我們可能收集：</p>
+                    <ul>
+                        <li><strong>帳號資訊</strong>：姓名/暱稱、電郵、登入憑證相關資訊（如第三方 OAuth 標識）。</li>
+                        <li><strong>業務使用資料</strong>：你在產品內的設定、操作記錄、功能使用情況、錯誤日誌與效能資料。</li>
+                        <li><strong>溝通與支援</strong>：你透過工單、電郵、社群等渠道提交的內容與附件。</li>
+                        <li><strong>裝置與存取資料</strong>：IP、瀏覽器類型、作業系統、存取時間、頁面來源、Cookie/本地儲存標識。</li>
+                        <li><strong>你匯入/上傳的資料</strong>：例如你自有的客戶線索、聯絡人、模板、知識庫內容等（你應確保對該資料擁有合法權利）。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>2. 我們如何使用資訊</h2>
+                    <ul>
+                        <li>提供、維護與改進服務（功能交付、故障排查、效能優化）。</li>
+                        <li>帳號管理與安全（身份驗證、風控、反欺詐、審計）。</li>
+                        <li>客戶支援與溝通（處理諮詢、發送服務通知與重要變更）。</li>
+                        <li>統計分析與產品迭代（以彙總或去標識化方式為主）。</li>
+                        <li>遵守法律義務與執法請求（在適用法律允許範圍內）。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>3. 共享與披露</h2>
+                    <p>我們不會出售你的個人資訊。我們可能在以下情形共享：</p>
+                    <ul>
+                        <li><strong>服務供應商</strong>：用於託管、監控、分析、支付、客服等（按需最小化）。</li>
+                        <li><strong>合規與安全</strong>：為滿足法律、監管、法院命令或保護權利與安全。</li>
+                        <li><strong>業務變更</strong>：併購、重組、資產轉讓時，在合理必要範圍內轉移。</li>
+                        <li><strong>你的指示</strong>：你主動啟用的第三方整合、連接器或匯出行為。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>4. Cookie 與本地儲存</h2>
+                    <p>我們使用 Cookie/本地儲存用於登入態、偏好（如語言）、安全與統計。你可以在瀏覽器設定中管理或清除它們，但可能影響部分功能。</p>
+                </div>
+
+                <div class="card">
+                    <h2>5. 資料保留</h2>
+                    <p>我們僅在實現本政策所述目的所需的最短期限內保留資料，或在法律要求/允許的期限內保留。你可透過產品功能或聯絡支援申請刪除（如適用）。</p>
+                </div>
+
+                <div class="card">
+                    <h2>6. 安全措施</h2>
+                    <p>我們採用合理的管理、技術與物理安全措施（存取控制、傳輸加密、日誌審計等）保護資料。但互聯網傳輸不可能 100% 安全。</p>
+                </div>
+
+                <div class="card">
+                    <h2>7. 你的權利</h2>
+                    <p>你可能享有存取、更正、刪除、撤回同意、限制處理、資料可攜帶等權利（取決於你的所在地法律）。你可透過幫助頁或電郵聯絡我們。</p>
+                </div>
+
+                <div class="card">
+                    <h2>8. 兒童私隱</h2>
+                    <p>ClawGet 面向企業與成人用戶。我們不會在知情情況下收集未成年人個人資訊。</p>
+                </div>
+
+                <div class="card">
+                    <h2>9. 跨境傳輸</h2>
+                    <p>為提供服務，你的資料可能在你所在國家/地區以外被處理。我們將採取合約、技術與組織措施保障跨境處理的合規與安全。</p>
+                </div>
+
+                <div class="card">
+                    <h2>10. 聯絡我們</h2>
+                    <p>如對本私隱政策有疑問或請求，請透過幫助中心或發送電郵至：support@clawget.ai。</p>
+                    <p><strong>公司名稱</strong>：格心科技集團有限公司</p>
+                    <p><strong>英文地址</strong>：Unit 903A,9/F.,Cameron Commercial Centre,458-468 Hennessy Road,Causeway Bay,Hong Kong</p>
+                    <p><strong>中文地址（繁體）</strong>：香港銅鑼灣軒尼詩道458-468號金聯商業中心9樓903A室</p>
+                </div>
+            </div>
+
+            <div class="lang-block" data-lang="en">
+                <div class="card">
+                    <h2>1. Information We Collect</h2>
+                    <p>To provide ClawGet (website, product, and support), we may collect:</p>
+                    <ul>
+                        <li><strong>Account data</strong>: name, email, authentication identifiers (e.g., OAuth IDs).</li>
+                        <li><strong>Usage data</strong>: settings, actions, feature usage, error logs, and performance metrics.</li>
+                        <li><strong>Support communications</strong>: tickets, emails, messages, and attachments.</li>
+                        <li><strong>Device & access data</strong>: IP address, browser, OS, timestamps, referrers, cookies/local storage IDs.</li>
+                        <li><strong>Data you upload/import</strong>: your leads, contacts, templates, knowledge base content, etc. You are responsible for having lawful rights to this data.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>2. How We Use Information</h2>
+                    <ul>
+                        <li>Provide, maintain, and improve the service.</li>
+                        <li>Account management and security (authentication, fraud prevention, audits).</li>
+                        <li>Customer support and communications (service notices, important updates).</li>
+                        <li>Analytics and product iteration (primarily aggregated or de-identified).</li>
+                        <li>Compliance with legal obligations and lawful requests.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>3. Sharing & Disclosure</h2>
+                    <p>We do not sell your personal information. We may share it:</p>
+                    <ul>
+                        <li><strong>Service providers</strong> for hosting, monitoring, analytics, payments, and support (data-minimized).</li>
+                        <li><strong>Compliance & security</strong> to meet legal requirements or protect rights and safety.</li>
+                        <li><strong>Business transfers</strong> (merger, acquisition, asset sale) as reasonably necessary.</li>
+                        <li><strong>Your instructions</strong> when you enable integrations or export data.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>4. Cookies & Local Storage</h2>
+                    <p>We use cookies/local storage for sessions, preferences (e.g., language), security, and analytics. You can manage them in your browser settings, but some features may not work properly.</p>
+                </div>
+
+                <div class="card">
+                    <h2>5. Data Retention</h2>
+                    <p>We retain data only for as long as needed to fulfill the purposes described here, or as required/permitted by law. You may request deletion where applicable.</p>
+                </div>
+
+                <div class="card">
+                    <h2>6. Security</h2>
+                    <p>We implement reasonable administrative, technical, and physical safeguards. However, no method of transmission over the internet is 100% secure.</p>
+                </div>
+
+                <div class="card">
+                    <h2>7. Your Rights</h2>
+                    <p>Depending on your jurisdiction, you may have rights to access, correct, delete, withdraw consent, restrict processing, or request data portability.</p>
+                </div>
+
+                <div class="card">
+                    <h2>8. Children</h2>
+                    <p>ClawGet is intended for businesses and adults. We do not knowingly collect personal information from minors.</p>
+                </div>
+
+                <div class="card">
+                    <h2>9. International Transfers</h2>
+                    <p>Your data may be processed outside your country/region. We use contractual, technical, and organizational measures to protect data for cross-border processing.</p>
+                </div>
+
+                <div class="card">
+                    <h2>10. Contact</h2>
+                    <p>Questions or requests: contact us via the Help Center or email support@clawget.ai.</p>
+                    <p><strong>Company</strong>: LATTICE CORE LIMITED</p>
+                    <p><strong>Address</strong>: Unit 903A,9/F.,Cameron Commercial Centre,458-468 Hennessy Road,Causeway Bay,Hong Kong</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            function applyLang() {
+                const lang = document.documentElement.lang || 'zh-CN';
+                document.querySelectorAll('.lang-block').forEach((el) => {
+                    el.classList.toggle('is-active', el.getAttribute('data-lang') === lang);
+                });
+            }
+
+            applyLang();
+            const obs = new MutationObserver(applyLang);
+            obs.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+        })();
+    </script>
+    <script src="./i18n/index.zh-CN.js"></script>
+    <script src="./i18n/runtime.js"></script>
+</body>
+</html>
