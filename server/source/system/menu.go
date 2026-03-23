@@ -59,6 +59,9 @@ func (i *initMenu) InitializeData(ctx context.Context) (next context.Context, er
 		{MenuLevel: 0, Hidden: true, ParentId: 0, Path: "person", Name: "person", Component: "view/person/person.vue", Sort: 4, Meta: Meta{Title: "个人信息", Icon: "message"}},
 		{MenuLevel: 0, Hidden: false, ParentId: 0, Path: "example", Name: "example", Component: "view/example/index.vue", Sort: 7, Meta: Meta{Title: "示例文件", Icon: "management"}},
 		{MenuLevel: 0, Hidden: false, ParentId: 0, Path: "systemTools", Name: "systemTools", Component: "view/systemTools/index.vue", Sort: 5, Meta: Meta{Title: "系统工具", Icon: "tools"}},
+		{MenuLevel: 0, Hidden: false, ParentId: 0, Path: "sendConfig", Name: "sendConfig", Component: "view/routerHolder.vue", Sort: 6, Meta: Meta{Title: "发件配置", Icon: "message"}},
+		{MenuLevel: 0, Hidden: false, ParentId: 0, Path: "contact", Name: "contact", Component: "view/routerHolder.vue", Sort: 6, Meta: Meta{Title: "联系人", Icon: "user"}},
+		{MenuLevel: 0, Hidden: false, ParentId: 0, Path: "contentCenter", Name: "contentCenter", Component: "view/routerHolder.vue", Sort: 6, Meta: Meta{Title: "内容中心", Icon: "document"}},
 		{MenuLevel: 0, Hidden: false, ParentId: 0, Path: "https://www.gin-vue-admin.com", Name: "https://www.gin-vue-admin.com", Component: "/", Sort: 0, Meta: Meta{Title: "官方网站", Icon: "customer-gva"}},
 		{MenuLevel: 0, Hidden: false, ParentId: 0, Path: "state", Name: "state", Component: "view/system/state.vue", Sort: 8, Meta: Meta{Title: "服务器状态", Icon: "cloudy"}},
 		{MenuLevel: 0, Hidden: false, ParentId: 0, Path: "plugin", Name: "plugin", Component: "view/routerHolder.vue", Sort: 6, Meta: Meta{Title: "插件系统", Icon: "cherry"}},
@@ -107,6 +110,18 @@ func (i *initMenu) InitializeData(ctx context.Context) (next context.Context, er
 		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["systemTools"], Path: "mcpTest", Name: "mcpTest", Component: "view/systemTools/autoCode/mcpTest.vue", Sort: 7, Meta: Meta{Title: "Mcp Tools测试", Icon: "partly-cloudy"}},
 		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["systemTools"], Path: "sysVersion", Name: "sysVersion", Component: "view/systemTools/version/version.vue", Sort: 8, Meta: Meta{Title: "版本管理", Icon: "server"}},
 		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["systemTools"], Path: "sysError", Name: "sysError", Component: "view/systemTools/sysError/sysError.vue", Sort: 9, Meta: Meta{Title: "错误日志", Icon: "warn"}},
+
+		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["sendConfig"], Path: "emailAccount", Name: "sendEmailAccount", Component: "view/sendConfig/emailAccount/index.vue", Sort: 1, Meta: Meta{Title: "邮箱账号", Icon: "message"}},
+
+		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["contact"], Path: "import", Name: "contactImport", Component: "view/contact/import/index.vue", Sort: 1, Meta: Meta{Title: "导入客户", Icon: "upload"}},
+		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["contact"], Path: "importHistory", Name: "contactImportHistory", Component: "view/contact/import/history.vue", Sort: 2, Meta: Meta{Title: "导入历史", Icon: "list"}},
+		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["contact"], Path: "manualAdd", Name: "contactManualAdd", Component: "view/contact/manualAdd/index.vue", Sort: 3, Meta: Meta{Title: "手动添加", Icon: "plus"}},
+		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["contact"], Path: "myList", Name: "contactMyList", Component: "view/contact/lists/index.vue", Sort: 4, Meta: Meta{Title: "我的列表", Icon: "folder"}},
+		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["contact"], Path: "tools", Name: "contactTools", Component: "view/routerHolder.vue", Sort: 5, Meta: Meta{Title: "工具", Icon: "tools"}},
+		{MenuLevel: 2, Hidden: false, ParentId: menuNameMap["contactTools"], Path: "emailVerify", Name: "contactEmailVerify", Component: "view/contact/tools/emailVerify/index.vue", Sort: 1, Meta: Meta{Title: "邮箱验证", Icon: "message"}},
+
+		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["contentCenter"], Path: "emailTemplate", Name: "emailTemplate", Component: "view/contentCenter/emailTemplate/index.vue", Sort: 1, Meta: Meta{Title: "邮件模板", Icon: "message"}},
+		{MenuLevel: 1, Hidden: true, ParentId: menuNameMap["contentCenter"], Path: "emailTemplateEdit/:id", Name: "emailTemplateEdit", Component: "view/contentCenter/emailTemplate/edit.vue", Sort: 0, Meta: Meta{Title: "编辑邮件模板", Icon: "edit"}},
 
 		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["plugin"], Path: "https://plugin.gin-vue-admin.com/", Name: "https://plugin.gin-vue-admin.com/", Component: "https://plugin.gin-vue-admin.com/", Sort: 0, Meta: Meta{Title: "插件市场", Icon: "shop"}},
 		{MenuLevel: 1, Hidden: false, ParentId: menuNameMap["plugin"], Path: "installPlugin", Name: "installPlugin", Component: "view/systemTools/installPlugin/index.vue", Sort: 1, Meta: Meta{Title: "插件安装", Icon: "box"}},

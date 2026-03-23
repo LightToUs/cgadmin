@@ -19,6 +19,13 @@ type ServiceGroup struct {
 	SysParamsService
 	SysVersionService
 	SkillsService
+	SenderEmailAccountService
+	EmailTemplateService
+	EmailTemplateFolderService
+	ContactService
+	ContactListService
+	ContactImportService
+	EmailVerifyService
 	AutoCodePlugin   autoCodePlugin
 	AutoCodePackage  autoCodePackage
 	AutoCodeHistory  autoCodeHistory

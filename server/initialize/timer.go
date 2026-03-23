@@ -24,6 +24,24 @@ func Timer() {
 			fmt.Println("add timer error:", err)
 		}
 
+		_, err = global.GVA_Timer.AddTaskByFunc("SenderEmailDailyReset", "0 0 0 * * *", func() {
+			if err := task.SenderEmailDailyReset(); err != nil {
+				fmt.Println("timer error:", err)
+			}
+		}, "发件邮箱今日已发清零", option...)
+		if err != nil {
+			fmt.Println("add timer error:", err)
+		}
+
+		_, err = global.GVA_Timer.AddTaskByFunc("SenderEmailConnectivityCheck", "0 10 0 * * *", func() {
+			if err := task.SenderEmailConnectivityCheck(); err != nil {
+				fmt.Println("timer error:", err)
+			}
+		}, "发件邮箱连通性检测", option...)
+		if err != nil {
+			fmt.Println("add timer error:", err)
+		}
+
 		// 其他定时任务定在这里 参考上方使用方法
 
 		//_, err := global.GVA_Timer.AddTaskByFunc("定时任务标识", "corn表达式", func() {

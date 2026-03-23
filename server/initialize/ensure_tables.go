@@ -2,6 +2,7 @@ package initialize
 
 import (
 	"context"
+
 	adapter "github.com/casbin/gorm-adapter/v3"
 	"github.com/flipped-aurora/gin-vue-admin/server/model/example"
 	sysModel "github.com/flipped-aurora/gin-vue-admin/server/model/system"
@@ -57,6 +58,15 @@ func (e *ensureTables) MigrateTable(ctx context.Context) (context.Context, error
 		sysModel.SysError{},
 		sysModel.SysLoginLog{},
 		sysModel.SysApiToken{},
+		sysModel.SysSenderEmailAccount{},
+		sysModel.SysEmailTemplateFolder{},
+		sysModel.SysEmailTemplate{},
+		sysModel.SysContact{},
+		sysModel.SysContactList{},
+		sysModel.SysContactListItem{},
+		sysModel.SysContactImportJob{},
+		sysModel.SysContactImportRowError{},
+		sysModel.SysEmailVerifyJob{},
 		adapter.CasbinRule{},
 
 		example.ExaFile{},
@@ -97,6 +107,15 @@ func (e *ensureTables) TableCreated(ctx context.Context) bool {
 		sysModel.SysExportTemplate{},
 		sysModel.Condition{},
 		sysModel.JoinTemplate{},
+		sysModel.SysSenderEmailAccount{},
+		sysModel.SysEmailTemplateFolder{},
+		sysModel.SysEmailTemplate{},
+		sysModel.SysContact{},
+		sysModel.SysContactList{},
+		sysModel.SysContactListItem{},
+		sysModel.SysContactImportJob{},
+		sysModel.SysContactImportRowError{},
+		sysModel.SysEmailVerifyJob{},
 
 		adapter.CasbinRule{},
 
